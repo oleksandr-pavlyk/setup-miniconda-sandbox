@@ -18,7 +18,7 @@ jobs:
           use-only-tar-bz2: true
           auto-update-conda: true
           conda-build-version: '*'
-          miniconda-version: 'latest'
+          miniconda-version: latest
           activate-environment: my_test
           python-version: '3.10'
       - name: Display conda info
