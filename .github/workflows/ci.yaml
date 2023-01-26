@@ -31,8 +31,12 @@ jobs:
       - name: Display conda list
         run: |
           conda list -n my_test
-      - name: Print version of threadpoolctl
+      - name: Print version of threadpoolctl, works
+        run: >-
+          conda activate my_test && python -c "import threadpoolctl as tpc; print(tpc.__version__)"
+      - name: Print version of threadpoolctl, no output
         run: |
           conda activate my_test
+          echo %CONDA_PREFIX%
           python -c "import threadpoolctl as tpc; print(tpc.__version__)"
 
