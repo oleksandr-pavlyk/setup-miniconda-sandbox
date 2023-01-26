@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        shell: cmd
+        shell: cmd /C CALL {0}
     steps:
       - uses: conda-incubator/setup-miniconda@v2
         with:
@@ -24,10 +24,10 @@ jobs:
       - name: Display conda info
         run: conda info
       - name: Display conda list
-        run: conda list
+        run: conda list -n my_test
       - name: Install package
         run: |
-          conda install threadpoolctl 
+          conda install -n my_test threadpoolctl 
       - name: Display conda list
         run: |
-          conda list
+          conda list -n my_test
