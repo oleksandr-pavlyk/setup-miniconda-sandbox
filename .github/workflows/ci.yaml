@@ -21,16 +21,13 @@ jobs:
           miniconda-version: 'latest'
           activate-environment: my_test
           python-version: '3.10'
-      - name: Display conda data
-        run: |
-          conda info
-          conda list
+      - name: Display conda info
+        run: conda info
+      - name: Display conda list
+        run: conda list
       - name: Install package
         run: |
-          conda install -c dppy/label/dev -c intel dpctl 
-          conda info
-          conda list
-      - name: Display conda data
+          conda install threadpoolctl 
+      - name: Display conda list
         run: |
-          conda info
           conda list
