@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        shell: cmd /C CALL {0}
+        shell: cmd /E:ON /V:OFF /S /C "CALL "{0}""
     steps:
       - uses: conda-incubator/setup-miniconda@v2
         with:
@@ -32,6 +32,7 @@ jobs:
         run: |
           conda list -n my_test
       - name: Print version of threadpoolctl
-        run: >-
-           conda activate my_test && python -c "import threadpoolctl as tpc; print(tpc.__version__)"
+        run: |
+          conda activate my_test
+          python -c "import threadpoolctl as tpc; print(tpc.__version__)"
 
